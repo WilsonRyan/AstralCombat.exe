@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cib33sfbqqvbh"]
+
+[ext_resource type="Script" uid="uid://d2w2y016xa2c5" path="res://Scenes/Projectiles/PlayerBullets/PlayerBulletBase.gd" id="1_ctd45"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c27ks"]
+radius = 3.0
+height = 16.0
+
+[node name="PlayerBulletBase" type="Area2D" unique_id=1993390410]
+rotation = 1.5707964
+script = ExtResource("1_ctd45")
+
+[node name="sprite_2d" type="Sprite2D" parent="." unique_id=2042580938]
+scale = Vector2(3, 3)
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="." unique_id=466694433]
+shape = SubResource("CapsuleShape2D_c27ks")

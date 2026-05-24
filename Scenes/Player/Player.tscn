@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b6xrhgpkdm86b"]
+
+[ext_resource type="Script" uid="uid://diauyfl47ru1p" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
+[ext_resource type="Texture2D" uid="uid://bnf0ipob4cpvu" path="res://Assets/Textures/PlayerShips/ship_0002.png" id="2_ft8w5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ft8w5"]
+radius = 3.0
+height = 14.0
+
+[node name="Player" type="Area2D" unique_id=1767697504]
+scale = Vector2(3, 3)
+script = ExtResource("1_s0eop")
+
+[node name="sprite_2d" type="Sprite2D" parent="." unique_id=868373390]
+texture = ExtResource("2_ft8w5")
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="." unique_id=2015777417]
+shape = SubResource("CapsuleShape2D_ft8w5")
+
+[node name="timer_fireRate" type="Timer" parent="." unique_id=825016947]
+wait_time = 0.1
+
+[connection signal="timeout" from="timer_fireRate" to="." method="_on_timer_fire_rate_timeout"]

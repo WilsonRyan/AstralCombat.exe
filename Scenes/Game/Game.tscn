@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dh3cpr0xm8es0"]
+
+[ext_resource type="Script" uid="uid://d26b0n8d8deq5" path="res://Scenes/Game/Game.gd" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://b6xrhgpkdm86b" path="res://Scenes/Player/Player.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://dpglund05audg" path="res://Scenes/ObjectMaker/ObjectMaker.tscn" id="3_xbxml"]
+
+[node name="Game" type="Node2D" unique_id=243694093]
+script = ExtResource("1_rdw05")
+
+[node name="Player" parent="." unique_id=1767697504 instance=ExtResource("2_gwu2e")]
+position = Vector2(191, 342)
+rotation = 1.5707964
+
+[node name="ObjectMaker" parent="." unique_id=826657136 instance=ExtResource("3_xbxml")]
