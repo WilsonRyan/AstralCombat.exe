@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://duxjvl52lken3"]
+
+[ext_resource type="PackedScene" uid="uid://b16f33lfhaknh" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_r24s2"]
+[ext_resource type="Texture2D" uid="uid://bxqf47tjp88qs" path="res://Assets/Textures/Debris/asteroid_fg_B.png" id="2_326qh"]
+[ext_resource type="Script" uid="uid://oxby78ctptbo" path="res://Scenes/Enemies/Debris/Asteroid.gd" id="2_ug6jj"]
+
+[node name="Asteroid" unique_id=728413938 instance=ExtResource("1_r24s2")]
+scale = Vector2(3, 3)
+script = ExtResource("2_ug6jj")
+spin_speed = 1.0
+speed = 100.0
+
+[node name="sprite_2d" parent="." index="0" unique_id=663644159]
+texture = ExtResource("2_326qh")
+
+[node name="Hitbox" parent="." index="1" unique_id=851868901]
+rotation = -0.8661862
+
+[node name="collision_shape_2d" parent="Hitbox" index="0" unique_id=660862561]
+position = Vector2(2.0953803, 0.4061243)

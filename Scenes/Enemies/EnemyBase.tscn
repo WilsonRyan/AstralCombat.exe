@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b16f33lfhaknh"]
+
+[ext_resource type="Script" uid="uid://clqroqo2wuhnc" path="res://Scenes/Enemies/EnemyBase.gd" id="1_iiq2q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iiq2q"]
+radius = 8.474801
+height = 22.740005
+
+[node name="EnemyBase" type="PathFollow2D" unique_id=728413938]
+script = ExtResource("1_iiq2q")
+
+[node name="sprite_2d" type="Sprite2D" parent="." unique_id=663644159]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=851868901]
+collision_layer = 4
+collision_mask = 3
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="Hitbox" unique_id=660862561]
+shape = SubResource("CapsuleShape2D_iiq2q")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

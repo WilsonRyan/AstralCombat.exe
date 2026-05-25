@@ -9,6 +9,7 @@ height = 14.0
 
 [node name="Player" type="Area2D" unique_id=1767697504]
 scale = Vector2(3, 3)
+collision_mask = 4
 script = ExtResource("1_s0eop")
 
 [node name="sprite_2d" type="Sprite2D" parent="." unique_id=868373390]
