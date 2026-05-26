@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://clqroqo2wuhnc" path="res://Scenes/Enemies/EnemyBase.gd" id="1_iiq2q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iiq2q"]
-radius = 8.474801
-height = 22.740005
+radius = 3.985644
+height = 27.997269
 
 [node name="EnemyBase" type="PathFollow2D" unique_id=728413938]
 script = ExtResource("1_iiq2q")

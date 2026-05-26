@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://d26b0n8d8deq5" path="res://Scenes/Game/Game.gd" id="1_rdw05"]
 [ext_resource type="PackedScene" uid="uid://b6xrhgpkdm86b" path="res://Scenes/Player/Player.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://dpglund05audg" path="res://Scenes/ObjectMaker/ObjectMaker.tscn" id="3_xbxml"]
-[ext_resource type="PackedScene" uid="uid://duxjvl52lken3" path="res://Scenes/Enemies/Debris/Asteroid.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://dh23xq2tjob0u" path="res://Scenes/Enemies/EnemyShips/EnemyShip.tscn" id="4_ln2h6"]
 
 [sub_resource type="Curve2D" id="Curve2D_y3kpf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1168, 16, 0, 0, 0, 0, 461, 590)
+"points": PackedVector2Array(0, 0, 0, 0, 1207, 303, 0, 0, 0, 0, 492, 303)
 }
 point_count = 2
 
@@ -23,9 +23,11 @@ rotation = 1.5707964
 [node name="EnemyPaths" type="Node" parent="." unique_id=40476694]
 
 [node name="path_2d" type="Path2D" parent="EnemyPaths" unique_id=1216507022]
-position = Vector2(-77, 53)
+position = Vector2(-114, 47)
 curve = SubResource("Curve2D_y3kpf")
 
-[node name="Asteroid" parent="EnemyPaths/path_2d" unique_id=728413938 instance=ExtResource("4_ln2h6")]
-position = Vector2(1168, 16)
-rotation = 2.4596488
+[node name="EnemyShip" parent="EnemyPaths/path_2d" unique_id=728413938 instance=ExtResource("4_ln2h6")]
+position = Vector2(1207, 303)
+rotation = -1.5707964
+rotates = false
+prim_bullet_fire_rate = 1.0

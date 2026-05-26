@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dh23xq2tjob0u"]
+
+[ext_resource type="PackedScene" uid="uid://b16f33lfhaknh" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_fklwt"]
+[ext_resource type="Script" uid="uid://bivw1w86vxmrm" path="res://Scenes/Enemies/EnemyShips/EnemyShip.gd" id="2_7j3ky"]
+[ext_resource type="Texture2D" uid="uid://tfyv4b52ola0" path="res://Assets/Textures/EnemyShips/ship_0005.png" id="3_7j3ky"]
+
+[node name="EnemyShip" unique_id=728413938 instance=ExtResource("1_fklwt")]
+scale = Vector2(3, 3)
+script = ExtResource("2_7j3ky")
+prim_bullet_speed_multi = 0.5
+prim_bullet_fire_rate = 0.3
+
+[node name="sprite_2d" parent="." index="0" unique_id=663644159]
+texture = ExtResource("3_7j3ky")
+
+[node name="collision_shape_2d" parent="Hitbox" parent_id_path=PackedInt32Array(851868901) index="0" unique_id=660862561]
+position = Vector2(0, -2)
+rotation = 1.5707964
+
+[node name="timer_fireRate" type="Timer" parent="." index="2" unique_id=1681454475]
+
+[connection signal="timeout" from="timer_fireRate" to="." method="_on_timer_fire_rate_timeout"]
