@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 
 func shoot() -> void:
 	if can_shoot == true:
-		print("shoot")
 		SignalHub.emit_on_create_enemy_bullet(Vector2(global_position.x,global_position.y), Vector2.LEFT, prim_bullet_speed_multi, EnemyBulletBase.BulletType.Regular)
 		can_shoot = false
 		timer_fire_rate.start()

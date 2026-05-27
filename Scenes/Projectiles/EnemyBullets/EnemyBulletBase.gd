@@ -27,5 +27,7 @@ func get_dmg() -> float:
 
 
 
-func _on_area_entered(_area: Area2D) -> void:
-	queue_free()
+func _on_area_entered(area: Area2D) -> void:
+	if area is Player:
+		SignalHub.emit_on_player_hit(get_dmg())
+		queue_free()
