@@ -1,3 +1,9 @@
+Sesh 5: 2026-05-28 PM
+Pushed: Working Main menu that you launch the game from and go to when the player dies. Creating the first actual game loop.
+Tested: Can enter the game or quit from launch. Transitions to main menu when player dies and can resume the game again.
+Learned: In the GameManager save the scenes as Strings then use "get_tree().call_deferred("change_scene_to_file", SCEEN_NAME)" to trasition scenes.
+Next: Create a working wave scene that can spawn the asteroid and EnemyShip.
+
 Sesh 4: 2026-05-28 AM
 Pushed: Player has working health bar that takes dmg when hit and kills player when it reaches 0. Enemy Bullet dmg is controlled in EnemyShip scene.
 Tested: Player takes dmg and queues_free() when reaching 0. Adjusting starting health from player node affects health bar. Adjusting enemy bullet dmg from EnemyShip scene affects bullet dmg on the player health bar.

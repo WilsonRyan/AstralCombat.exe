@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://t0s75hg7hl21" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_exe2v"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_c3p6v"]
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_exe2v"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_vv2qh"]
+font_size = 48
+
 [node name="MainMenu" type="Control" unique_id=586374221]
 layout_mode = 3
 anchors_preset = 15
@@ -10,3 +19,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_exe2v")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=425029621]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=361025690]
+layout_mode = 2
+
+[node name="TopSpaceLabel" type="Label" parent="margin_container/v_box_container" unique_id=336101365]
+layout_mode = 2
+text = "
+
+
+"
+
+[node name="TitleLabel" type="Label" parent="margin_container/v_box_container" unique_id=1712013546]
+layout_mode = 2
+text = "Astral_Combat.exe"
+label_settings = SubResource("LabelSettings_c3p6v")
+horizontal_alignment = 1
+
+[node name="MiddleSpaceLabel" type="Label" parent="margin_container/v_box_container" unique_id=847619182]
+layout_mode = 2
+text = "
+"
+
+[node name="PlayLabel" type="Label" parent="margin_container/v_box_container" unique_id=1281115914]
+layout_mode = 2
+text = "Press \"ENTER\" to play"
+label_settings = SubResource("LabelSettings_exe2v")
+horizontal_alignment = 1
+
+[node name="MiddleSpaceLabel_2" type="Label" parent="margin_container/v_box_container" unique_id=178126861]
+layout_mode = 2
+text = "
+"
+
+[node name="ExitLabel" type="Label" parent="margin_container/v_box_container" unique_id=1289445384]
+layout_mode = 2
+text = "Press \"ESCAPE\" to exit"
+label_settings = SubResource("LabelSettings_vv2qh")
+horizontal_alignment = 1
