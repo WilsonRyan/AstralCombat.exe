@@ -1,4 +1,10 @@
-Sesh 3: 2026-5-27 AM
+Sesh 4: 2026-05-28 AM
+Pushed: Player has working health bar that takes dmg when hit and kills player when it reaches 0. Enemy Bullet dmg is controlled in EnemyShip scene.
+Tested: Player takes dmg and queues_free() when reaching 0. Adjusting starting health from player node affects health bar. Adjusting enemy bullet dmg from EnemyShip scene affects bullet dmg on the player health bar.
+Learned: Use a simple CanvasLayer to add UI elements to. This makes them format and fit on the viewport easier.
+Next: Create simple "Main Menu" where the player starts the game and returns when they die, and they can restart from.
+
+Sesh 3: 2026-05-27 AM
 Pushed: Player has health that is reduced when hit by an enemy bullet and will "die" when health reaches zero.
 Tested: Player is actually hit by bullets and loses health and will queue_free() when health reaches zero.
 Learned: How to use TextureProgressBar as a health bar scene

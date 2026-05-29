@@ -15,16 +15,16 @@ point_count = 2
 [node name="Game" type="Node2D" unique_id=243694093]
 script = ExtResource("1_rdw05")
 
-[node name="HUD" parent="." unique_id=2021154901 instance=ExtResource("2_y3kpf")]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_bottom = 0.5
-size_flags_horizontal = 6
+[node name="HUDCanvas" type="CanvasLayer" parent="." unique_id=936811895]
+
+[node name="HUD" parent="HUDCanvas" unique_id=2021154901 instance=ExtResource("2_y3kpf")]
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player" parent="." unique_id=1767697504 instance=ExtResource("2_gwu2e")]
 position = Vector2(191, 342)
 rotation = 1.5707964
+health = 100.0
 
 [node name="ObjectMaker" parent="." unique_id=826657136 instance=ExtResource("3_xbxml")]
 

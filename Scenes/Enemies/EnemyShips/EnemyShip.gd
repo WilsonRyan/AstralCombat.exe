@@ -6,6 +6,7 @@ extends EnemyBase
 
 @export var prim_bullet_speed_multi: float = 0.5
 @export var prim_bullet_fire_rate: float = 0.3
+@export var prim_bullet_dmg: float = 10.0
 
 
 var can_shoot: bool = true
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 
 func shoot() -> void:
 	if can_shoot == true:
-		SignalHub.emit_on_create_enemy_bullet(Vector2(global_position.x,global_position.y), Vector2.LEFT, prim_bullet_speed_multi, EnemyBulletBase.BulletType.Regular)
+		SignalHub.emit_on_create_enemy_bullet(Vector2(global_position.x,global_position.y), Vector2.LEFT, prim_bullet_speed_multi, EnemyBulletBase.BulletType.Regular, prim_bullet_dmg)
 		can_shoot = false
 		timer_fire_rate.start()
 

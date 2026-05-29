@@ -17,7 +17,8 @@ var can_shoot: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalHub.on_player_hit.connect(on_player_hit)
+	#SignalHub.on_player_hit.connect(on_player_hit)
+	SignalHub.on_player_die.connect(on_player_die)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,11 +49,14 @@ func die() -> void:
 func get_health() -> float:
 	return health
 
-func on_player_hit(dmg: float) -> void:
-	health -= dmg
-	print(health)
-	if health <= 0.0:
-		die()
+func on_player_die() -> void:
+	die()
+
+#func on_player_hit(dmg: float) -> void:
+	#health -= dmg
+	#print(health)
+	#if health <= 0.0:
+		#die()
 
 
 func _on_timer_fire_rate_timeout() -> void:

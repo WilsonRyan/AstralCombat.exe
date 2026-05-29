@@ -11,6 +11,7 @@ height = 14.0
 rotation = -1.5707964
 collision_layer = 8
 script = ExtResource("1_khnv6")
+_dmg = 20.0
 
 [node name="sprite_2d" type="Sprite2D" parent="." unique_id=1502716457]
 texture = ExtResource("2_e178l")

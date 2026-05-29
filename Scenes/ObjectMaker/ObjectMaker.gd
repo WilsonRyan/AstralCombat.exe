@@ -29,11 +29,11 @@ func on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type: Play
 		call_deferred(ADD_OBJECT, scene, pos)
 
 
-func on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType) -> void:
+func on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float) -> void:
 	var scene: EnemyBulletBase
 	match bullet_type:
 		EnemyBulletBase.BulletType.Regular:
 			scene = ENEMY_BULLET_BASE.instantiate()
 	if scene:
-		scene.setup(dir, speed_multi)
+		scene.setup(dir, speed_multi, dmg)
 		call_deferred(ADD_OBJECT, scene, pos)

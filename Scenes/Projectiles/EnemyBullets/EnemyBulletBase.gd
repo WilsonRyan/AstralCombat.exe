@@ -8,7 +8,7 @@ enum BulletType { Regular }
 
 @export var _direction: Vector2 = Vector2.LEFT
 @export var _speed: float = 400.0
-@export var _dmg: float = 5.0
+@export var _dmg: float = 10.0
 
 var can_shoot: bool = true
 
@@ -18,9 +18,10 @@ func _process(delta: float) -> void:
 
 
 
-func setup(dir: Vector2, speed_multi: float) -> void:
+func setup(dir: Vector2, speed_multi: float, dmg: float) -> void:
 	_speed = _speed * speed_multi
 	_direction = dir
+	_dmg = dmg
 
 func get_dmg() -> float:
 	return _dmg
