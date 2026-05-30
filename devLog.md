@@ -1,10 +1,16 @@
-Sesh 5: 2026-05-28 PM
+Sesh 6: 2026-05-30 AM
+Pushed: WaveManager does spawn either an asteroid or enemy ship randomly and keeps spawning until it hits the desired difficulty, but then stops spawning.
+Tested: That the game will spawn enemies.
+Learned: A lot. Idk, just again played with where to spawn the packedscenes. Ended up doing it in the WaveManager. How to create an array of callable functions and call them randomly.
+Next: As enemies either, die or despawn, I want the difficulty to be decreased so that the wave spawner summons more enemies after an enemy is removed from the tree.
+
+Sesh 5: 2026-05-29 PM
 Pushed: Working Main menu that you launch the game from and go to when the player dies. Creating the first actual game loop.
 Tested: Can enter the game or quit from launch. Transitions to main menu when player dies and can resume the game again.
 Learned: In the GameManager save the scenes as Strings then use "get_tree().call_deferred("change_scene_to_file", SCEEN_NAME)" to trasition scenes.
 Next: Create a working wave scene that can spawn the asteroid and EnemyShip.
 
-Sesh 4: 2026-05-28 AM
+Sesh 4: 2026-05-29 AM
 Pushed: Player has working health bar that takes dmg when hit and kills player when it reaches 0. Enemy Bullet dmg is controlled in EnemyShip scene.
 Tested: Player takes dmg and queues_free() when reaching 0. Adjusting starting health from player node affects health bar. Adjusting enemy bullet dmg from EnemyShip scene affects bullet dmg on the player health bar.
 Learned: Use a simple CanvasLayer to add UI elements to. This makes them format and fit on the viewport easier.

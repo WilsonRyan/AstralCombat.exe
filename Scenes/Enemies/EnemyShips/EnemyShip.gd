@@ -1,12 +1,13 @@
 extends EnemyBase
 
-
 @onready var timer_fire_rate: Timer = $timer_fireRate
 
 
 @export var prim_bullet_speed_multi: float = 0.5
 @export var prim_bullet_fire_rate: float = 0.3
 @export var prim_bullet_dmg: float = 10.0
+@export var difficulty: float = 2.0
+
 
 
 var can_shoot: bool = true
@@ -14,7 +15,7 @@ var can_shoot: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +23,9 @@ func _process(delta: float) -> void:
 	shoot()
 	super(delta)
 
+
+func get_difficulty() -> float:
+	return difficulty
 
 func shoot() -> void:
 	if can_shoot == true:

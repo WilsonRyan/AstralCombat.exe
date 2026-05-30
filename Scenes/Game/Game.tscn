@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x74p5f1o26b6" path="res://Scenes/HUD/Hud.tscn" id="2_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://dpglund05audg" path="res://Scenes/ObjectMaker/ObjectMaker.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://dh23xq2tjob0u" path="res://Scenes/Enemies/EnemyShips/EnemyShip.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://b08ccds5330ov" path="res://Scenes/WaveManager/WaveManager.tscn" id="6_3k6gv"]
 
 [sub_resource type="Curve2D" id="Curve2D_y3kpf"]
 _data = {
@@ -39,3 +40,6 @@ position = Vector2(1207, 303)
 rotation = -1.5707964
 rotates = false
 prim_bullet_fire_rate = 1.0
+difficulty = 2.0
+
+[node name="WaveManager" parent="." unique_id=1998643419 instance=ExtResource("6_3k6gv")]

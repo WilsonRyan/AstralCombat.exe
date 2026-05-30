@@ -4,6 +4,7 @@ extends Node
 
 signal on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type: PlayerBulletBase.BulletType)
 signal on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float)
+#signal on_create_enemy(enemy_type: EnemyBase.EnemyType)
 signal on_player_hit(dmg: float)
 signal on_player_die()
 
@@ -13,6 +14,9 @@ func emit_on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type:
 
 func emit_on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float) -> void:
 	on_create_enemy_bullet.emit(pos, dir, speed_multi, bullet_type, dmg)
+
+#func emit_on_create_enemy(enemy_type: EnemyBase.EnemyType) -> void:
+	#on_create_enemy.emit(enemy_type)
 
 func emit_on_player_hit(dmg: float) -> void:
 	on_player_hit.emit(dmg)

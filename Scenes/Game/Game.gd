@@ -14,6 +14,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("escape") == true:
+		GameManager.load_main_menu()
+
 
 func on_player_die() -> void:
 	GameManager.load_main_menu()

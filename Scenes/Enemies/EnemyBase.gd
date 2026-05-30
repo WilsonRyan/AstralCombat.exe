@@ -2,6 +2,7 @@ extends PathFollow2D
 
 
 class_name EnemyBase
+enum EnemyType { EnemyShip, Asteroid }
 
 
 @export var health: float = 10.0
@@ -18,7 +19,6 @@ func _process(delta: float) -> void:
 
 func die() -> void:
 	queue_free()
-
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
