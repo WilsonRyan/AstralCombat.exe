@@ -10,6 +10,8 @@ script = ExtResource("2_7j3ky")
 prim_bullet_speed_multi = 0.5
 prim_bullet_fire_rate = 0.3
 prim_bullet_dmg = 22.0
+difficulty = 2.0
+speed = 200.0
 
 [node name="sprite_2d" parent="." index="0" unique_id=663644159]
 texture = ExtResource("3_7j3ky")

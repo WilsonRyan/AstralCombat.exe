@@ -1,8 +1,14 @@
+Sesh 7: 2026-06-01 AM
+Pushed: Redid my wave design a bit, by creating Node2D scene with all the paths for each enemy type. WaveManager now spawns enemies and adds them randomly to one of the paths in their EnemyPaths scene.
+Tested: Both asteroids and ships can spawn and only get added to their associated paths.
+Learned: More practice using the "match" feature to match various types.
+Next: Dequeue the enemies ONLY when they reach the end of their Path NOT when they die. When they dequeue the difficulty level should drop.
+
 Sesh 6: 2026-05-30 AM
 Pushed: WaveManager does spawn either an asteroid or enemy ship randomly and keeps spawning until it hits the desired difficulty, but then stops spawning.
 Tested: That the game will spawn enemies.
 Learned: A lot. Idk, just again played with where to spawn the packedscenes. Ended up doing it in the WaveManager. How to create an array of callable functions and call them randomly.
-Next: As enemies either, die or despawn, I want the difficulty to be decreased so that the wave spawner summons more enemies after an enemy is removed from the tree.
+Next: As enemies either die or despawn, I want the difficulty to be decreased so that the WaveManager spawns more enemies after an enemy is removed from the tree.
 
 Sesh 5: 2026-05-29 PM
 Pushed: Working Main menu that you launch the game from and go to when the player dies. Creating the first actual game loop.

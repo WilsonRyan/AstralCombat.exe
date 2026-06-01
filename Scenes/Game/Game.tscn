@@ -4,14 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6xrhgpkdm86b" path="res://Scenes/Player/Player.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://x74p5f1o26b6" path="res://Scenes/HUD/Hud.tscn" id="2_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://dpglund05audg" path="res://Scenes/ObjectMaker/ObjectMaker.tscn" id="3_xbxml"]
-[ext_resource type="PackedScene" uid="uid://dh23xq2tjob0u" path="res://Scenes/Enemies/EnemyShips/EnemyShip.tscn" id="4_ln2h6"]
 [ext_resource type="PackedScene" uid="uid://b08ccds5330ov" path="res://Scenes/WaveManager/WaveManager.tscn" id="6_3k6gv"]
-
-[sub_resource type="Curve2D" id="Curve2D_y3kpf"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1207, 303, 0, 0, 0, 0, 492, 303)
-}
-point_count = 2
 
 [node name="Game" type="Node2D" unique_id=243694093]
 script = ExtResource("1_rdw05")
@@ -30,16 +23,5 @@ health = 100.0
 [node name="ObjectMaker" parent="." unique_id=826657136 instance=ExtResource("3_xbxml")]
 
 [node name="EnemyPaths" type="Node" parent="." unique_id=40476694]
-
-[node name="path_2d" type="Path2D" parent="EnemyPaths" unique_id=1216507022]
-position = Vector2(-114, 47)
-curve = SubResource("Curve2D_y3kpf")
-
-[node name="EnemyShip" parent="EnemyPaths/path_2d" unique_id=728413938 instance=ExtResource("4_ln2h6")]
-position = Vector2(1207, 303)
-rotation = -1.5707964
-rotates = false
-prim_bullet_fire_rate = 1.0
-difficulty = 2.0
 
 [node name="WaveManager" parent="." unique_id=1998643419 instance=ExtResource("6_3k6gv")]

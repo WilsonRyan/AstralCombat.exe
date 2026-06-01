@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dyjn0rqau72gf"]
+
+[ext_resource type="PackedScene" uid="uid://oh1lh0dr0puc" path="res://Scenes/Enemies/EnemyPaths/EnemyPathsBase.tscn" id="1_2uw14"]
+
+[sub_resource type="Curve2D" id="Curve2D_2uw14"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1331, -145, 142.50002, -88.75001, -142.50002, 88.75001, 835, 104, 118.75001, -105.00001, -118.75001, 105.00001, 673, 499, 0, 0, 0, 0, -264, 709)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_avo53"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1333, 893, 107.50001, 220.00002, -107.50001, -220.00002, 816, 555, 187.50002, 68.75001, -187.50002, -68.75001, 665, 91, 0, 0, 0, 0, -225, -124)
+}
+point_count = 4
+
+[node name="EnemyPathsShip" unique_id=1541130569 instance=ExtResource("1_2uw14")]
+
+[node name="path_2d" type="Path2D" parent="." index="0" unique_id=838020110]
+curve = SubResource("Curve2D_2uw14")
+
+[node name="path_2d_2" type="Path2D" parent="." index="1" unique_id=1730009493]
+position = Vector2(-29, -16)
+curve = SubResource("Curve2D_avo53")
