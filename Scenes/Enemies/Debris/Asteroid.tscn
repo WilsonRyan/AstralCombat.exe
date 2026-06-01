@@ -10,11 +10,11 @@ script = ExtResource("2_ug6jj")
 spin_speed = 1.0
 speed = 100.0
 
-[node name="sprite_2d" parent="." index="0" unique_id=663644159]
+[node name="sprite_2d" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="0" unique_id=663644159]
 texture = ExtResource("2_326qh")
 
-[node name="Hitbox" parent="." index="1" unique_id=851868901]
+[node name="Hitbox" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="1" unique_id=851868901]
 rotation = -0.8661862
 
-[node name="collision_shape_2d" parent="Hitbox" index="0" unique_id=660862561]
-position = Vector2(2.0953803, 0.4061243)
+[node name="collision_shape_2d" parent="EnemyVisuals/Hitbox" index="0" unique_id=660862561]
+position = Vector2(1.8414257, 0.6220367)

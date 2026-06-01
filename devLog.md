@@ -1,3 +1,9 @@
+Sesh 8: 2026-06-01 PM
+Pushed: Enemies dequeue and remove difficulty from the wave scene ONLY when they reach the end of their Path, but the enemy can still die along the path.
+Tested: When enemies die it does NOT return difficulty, but enemies do not shoot or have hitboxes that work. Enemy dequeues at the end of their path, and then spawns more enemies based on difficulty of the wave.
+Learned: Remembered the syntax for set_deferred("monitoring", false) in order to make hitboxes not break when in the middle of a collision event.
+Next: Add dmg on the player when the player hits enemy Hitboxes, THEN add a TIME variable to the WaveManager, which is the time for the "level", that then progresses the player to the next "level" once the time finishes. This will be managing the run essentially.
+
 Sesh 7: 2026-06-01 AM
 Pushed: Redid my wave design a bit, by creating Node2D scene with all the paths for each enemy type. WaveManager now spawns enemies and adds them randomly to one of the paths in their EnemyPaths scene.
 Tested: Both asteroids and ships can spawn and only get added to their associated paths.

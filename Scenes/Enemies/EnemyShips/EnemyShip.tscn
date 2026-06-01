@@ -8,18 +8,19 @@
 scale = Vector2(3, 3)
 script = ExtResource("2_7j3ky")
 prim_bullet_speed_multi = 0.5
-prim_bullet_fire_rate = 0.3
+prim_bullet_fire_rate = 3.0
 prim_bullet_dmg = 22.0
-difficulty = 2.0
 speed = 200.0
+difficulty = 2.0
 
-[node name="sprite_2d" parent="." index="0" unique_id=663644159]
+[node name="sprite_2d" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="0" unique_id=663644159]
 texture = ExtResource("3_7j3ky")
 
-[node name="collision_shape_2d" parent="Hitbox" parent_id_path=PackedInt32Array(851868901) index="0" unique_id=660862561]
+[node name="collision_shape_2d" parent="EnemyVisuals/Hitbox" parent_id_path=PackedInt32Array(851868901) index="0" unique_id=660862561]
 position = Vector2(0, -2)
 rotation = 1.5707964
 
-[node name="timer_fireRate" type="Timer" parent="." index="2" unique_id=1681454475]
+[node name="timer_fireRate" type="Timer" parent="." index="1" unique_id=1681454475]
+wait_time = 3.0
 
 [connection signal="timeout" from="timer_fireRate" to="." method="_on_timer_fire_rate_timeout"]

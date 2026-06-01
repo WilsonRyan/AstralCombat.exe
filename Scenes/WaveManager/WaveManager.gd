@@ -19,13 +19,14 @@ var current_wave_diff: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalHub.on_enemy_dequeue.connect(on_enemy_dequeue)
 	start_spawn_timer()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if current_wave_diff < _wave_difficulty:
-		spawn_enemy(EnemyBase.EnemyType.EnemyShip)
+		spawn_enemy(EnemyBase.EnemyType.Asteroid)
 
 #MUST ADD EACH ENEMY TO THIS FUNCTION
 func get_enemy_path(enemy_type: EnemyBase.EnemyType) -> EnemyPathsBase:
@@ -56,6 +57,10 @@ func spawn_enemy(enemy_type: EnemyBase.EnemyType) -> void:
 		print("Max: ", _wave_difficulty)
 		can_spawn = false
 		start_spawn_timer()
+
+
+func on_enemy_dequeue(eny_diff: float) -> void:
+	current_wave_diff -= eny_diff
 
 
 func start_spawn_timer() -> void:
