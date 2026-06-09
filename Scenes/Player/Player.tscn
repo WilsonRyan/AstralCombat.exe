@@ -9,7 +9,7 @@ height = 14.0
 
 [node name="Player" type="Area2D" unique_id=1767697504]
 scale = Vector2(3, 3)
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("1_s0eop")
 
 [node name="sprite_2d" type="Sprite2D" parent="." unique_id=868373390]
@@ -21,4 +21,5 @@ shape = SubResource("CapsuleShape2D_ft8w5")
 [node name="timer_fireRate" type="Timer" parent="." unique_id=825016947]
 wait_time = 0.1
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="timer_fireRate" to="." method="_on_timer_fire_rate_timeout"]

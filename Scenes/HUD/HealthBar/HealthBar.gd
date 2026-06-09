@@ -13,6 +13,7 @@ const COLOR_GOOD: Color = Color("#33cc33")
 @export var level_med: float = max_health * 0.65
 @export var level_low: float = max_health * 0.35
 
+@onready var health_amount: Label = $healthAmount
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +30,7 @@ func setup(player: Player) -> void:
 	value = current_health
 	level_med = max_health * 0.6
 	level_low = max_health * 0.2
+	health_amount.text = "%d/%d" % [current_health, max_health]
 	set_color()
 
 func set_color() -> void:
@@ -42,6 +44,7 @@ func set_color() -> void:
 func incr_value(v: float) -> void:
 	current_health -= v
 	value = current_health
+	health_amount.text = "%d/%d" % [current_health, max_health]
 	set_color()
 
 func take_damage(v: float) -> void:
@@ -52,6 +55,5 @@ func take_damage(v: float) -> void:
 func on_player_hit(dmg: float) -> void:
 	incr_value(dmg)
 	value = current_health
-	print(current_health)
 	if current_health <= 0.0:
 		SignalHub.emit_on_player_die()

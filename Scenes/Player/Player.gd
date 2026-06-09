@@ -17,7 +17,6 @@ var can_shoot: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#SignalHub.on_player_hit.connect(on_player_hit)
 	SignalHub.on_player_die.connect(on_player_die)
 
 
@@ -59,6 +58,12 @@ func on_player_die() -> void:
 		#die()
 
 
+
 func _on_timer_fire_rate_timeout() -> void:
 	can_shoot = true
 	timer_fire_rate.wait_time = prim_bullet_fire_rate
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is not EnemyBulletBase:
+		SignalHub.emit_on_player_hit(25)

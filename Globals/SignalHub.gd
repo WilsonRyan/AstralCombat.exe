@@ -7,6 +7,8 @@ signal on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bu
 signal on_player_hit(dmg: float)
 signal on_player_die()
 signal on_enemy_dequeue(eny_diff: float)
+signal on_level_complete()
+signal on_start_next_level()
 
 
 func emit_on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type: PlayerBulletBase.BulletType) -> void:
@@ -23,3 +25,9 @@ func emit_on_player_die() -> void:
 
 func emit_on_enemy_dequeue(eny_diff: float) -> void:
 	on_enemy_dequeue.emit(eny_diff)
+
+func emit_on_level_complete() -> void:
+	on_level_complete.emit()
+
+func emit_on_start_next_level() -> void:
+	on_start_next_level.emit()

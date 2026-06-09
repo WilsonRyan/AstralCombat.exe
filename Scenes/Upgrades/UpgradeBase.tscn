@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c721tyqybney7"]
+
+[ext_resource type="Script" uid="uid://ihtvrywwycdq" path="res://Scenes/Upgrades/UpgradeBase.gd" id="1_1nw8c"]
+[ext_resource type="Texture2D" uid="uid://b8l8uvdoo6ak2" path="res://Assets/Textures/Upgrades/star.png" id="2_oil22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nt1ob"]
+radius = 25.0
+
+[node name="UpgradeBase" type="Area2D" unique_id=1514471183]
+scale = Vector2(3, 3)
+collision_layer = 16
+script = ExtResource("1_1nw8c")
+
+[node name="sprite_2d" type="Sprite2D" parent="." unique_id=219282089]
+texture = ExtResource("2_oil22")
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="." unique_id=495018068]
+shape = SubResource("CircleShape2D_nt1ob")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

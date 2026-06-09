@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6xrhgpkdm86b" path="res://Scenes/Player/Player.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://x74p5f1o26b6" path="res://Scenes/HUD/Hud.tscn" id="2_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://dpglund05audg" path="res://Scenes/ObjectMaker/ObjectMaker.tscn" id="3_xbxml"]
+[ext_resource type="PackedScene" uid="uid://c721tyqybney7" path="res://Scenes/Upgrades/UpgradeBase.tscn" id="6_1q8bt"]
 [ext_resource type="PackedScene" uid="uid://b08ccds5330ov" path="res://Scenes/WaveManager/WaveManager.tscn" id="6_3k6gv"]
 
 [node name="Game" type="Node2D" unique_id=243694093]
@@ -22,6 +23,12 @@ health = 100.0
 
 [node name="ObjectMaker" parent="." unique_id=826657136 instance=ExtResource("3_xbxml")]
 
-[node name="EnemyPaths" type="Node" parent="." unique_id=40476694]
-
 [node name="WaveManager" parent="." unique_id=1998643419 instance=ExtResource("6_3k6gv")]
+
+[node name="LevelTimer" type="Timer" parent="." unique_id=1743258441]
+one_shot = true
+
+[node name="UpgradeBase" parent="." unique_id=1514471183 instance=ExtResource("6_1q8bt")]
+position = Vector2(1059, 359)
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

@@ -1,3 +1,14 @@
+Sesh 10: 2026-06-09 AM
+Pushed: Moved the level timer to the "Game" scene, level completes after X amount of time. When level timer completes a blank powerup appears that the player can move onto to progress to the next level, which increase difficulty and level time. Added timer and difficulty on screen to the HUD sceen for easier troubleshooting.
+Learned: SignalHub can send signal to multiple scenes if needed, rather than just 1 scene per signal. More like 1 signal to many scene relationship.
+Next: Have blank powerup to progress player, ONLY appear if the difficulty on screen is ZERO. After X amount of levels display a "YOU WIN" text on the screen, which then prompts the player to go back to the menu to try again.
+
+Sesh 9: 2026-06-06 AM
+Pushed: Player takes impact dmg from enemy and asteroid. Health bar displays health amount as text. WaveManager randomly spawns asteroid or enemyship. WaveManager stops spawning enemies after set amount of time in the wave was active.
+Tested: Player takes impact dmg from both enemy types. WaveManager stops spawning enemies after set amount of time.
+Learned: Reminder on how to format strings string = "This is the number 100: %d" % 100. The %d removed decimals from the float.
+Next: When the timer ends increase difficulty and progress to the next "level" and start spawning more enemies. Have it do this for X iterations then display "You win!"
+
 Sesh 8: 2026-06-01 PM
 Pushed: Enemies dequeue and remove difficulty from the wave scene ONLY when they reach the end of their Path, but the enemy can still die along the path.
 Tested: When enemies die it does NOT return difficulty, but enemies do not shoot or have hitboxes that work. Enemy dequeues at the end of their path, and then spawns more enemies based on difficulty of the wave.
