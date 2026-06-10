@@ -71,7 +71,7 @@ func on_start_next_level() -> void:
 func on_enemy_dequeue(eny_diff: float) -> void:
 	current_wave_diff -= eny_diff
 
-func  on_level_complete() -> void:
+func on_level_complete() -> void:
 	level_complete = true
 	print("LEVEL COMPLETE")
 

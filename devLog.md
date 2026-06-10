@@ -1,7 +1,12 @@
+Sesh 11: 2026-06-09 PM
+Pushed: The wave spawns the end of wave powerup ONLY if there are no enemies on the screen now. After completing X amount of levels the game returns the player to the menu, and prints "YOU WIN" to the console. Creation of the end of wave upgrade is done in the ObjectMaker scene now, instead of in the Game scene.
+Learned: Reminder on how to effectively use the ObjectMaker to create objects in the Game scene that aren't part of the WaveManager.
+Next: Create 3 different power up options. +movement speed, +bullet dmg, +player health. Once done, then have the end of wave spawn TWO distinct random upgrades that apply to the player when the player flies over to one which progresses the game to the next level.
+
 Sesh 10: 2026-06-09 AM
 Pushed: Moved the level timer to the "Game" scene, level completes after X amount of time. When level timer completes a blank powerup appears that the player can move onto to progress to the next level, which increase difficulty and level time. Added timer and difficulty on screen to the HUD sceen for easier troubleshooting.
 Learned: SignalHub can send signal to multiple scenes if needed, rather than just 1 scene per signal. More like 1 signal to many scene relationship.
-Next: Have blank powerup to progress player, ONLY appear if the difficulty on screen is ZERO. After X amount of levels display a "YOU WIN" text on the screen, which then prompts the player to go back to the menu to try again.
+Next: Have blank powerup to progress player ONLY appear if the difficulty on screen is ZERO. After X amount of levels display a "YOU WIN" text on the screen, which then prompts the player to go back to the menu to try again.
 
 Sesh 9: 2026-06-06 AM
 Pushed: Player takes impact dmg from enemy and asteroid. Health bar displays health amount as text. WaveManager randomly spawns asteroid or enemyship. WaveManager stops spawning enemies after set amount of time in the wave was active.

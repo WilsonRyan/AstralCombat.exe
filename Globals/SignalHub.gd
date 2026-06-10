@@ -4,6 +4,7 @@ extends Node
 
 signal on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type: PlayerBulletBase.BulletType)
 signal on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float)
+signal on_create_level_complete_upgrade(pos: Vector2)
 signal on_player_hit(dmg: float)
 signal on_player_die()
 signal on_enemy_dequeue(eny_diff: float)
@@ -25,6 +26,9 @@ func emit_on_player_die() -> void:
 
 func emit_on_enemy_dequeue(eny_diff: float) -> void:
 	on_enemy_dequeue.emit(eny_diff)
+
+func emit_on_create_level_complete_upgrade(pos: Vector2) -> void:
+	on_create_level_complete_upgrade.emit(pos)
 
 func emit_on_level_complete() -> void:
 	on_level_complete.emit()

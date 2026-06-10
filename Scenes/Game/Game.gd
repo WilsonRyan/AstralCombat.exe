@@ -5,9 +5,13 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var level_timer: Timer = $LevelTimer
 @onready var wave_manager: Node2D = $WaveManager
-@onready var upgrade_base: UpgradeBase = $UpgradeBase
 
+@export var max_level: int = 3
+@export var level_time_increase_amt: float = 2.0
+
+var current_level: int = 1
 var level_length: float = 10.0
+var level_complete: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +25,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	hud.set_level_time(level_timer.time_left)
 	hud.set_difficulty_on_screen(wave_manager._wave_difficulty, wave_manager.current_wave_diff)
+	hud.set_level(max_level, current_level)
+	if level_complete == true and wave_manager.current_wave_diff == 0:
+		if current_level == max_level:
+			print("YOU WIN THE RUN!")
+			GameManager.load_main_menu()
+		else:
+			SignalHub.emit_on_create_level_complete_upgrade(Vector2(1000,360))
+			level_complete = false
+			current_level += 1
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape") == true:
@@ -37,10 +50,10 @@ func on_player_die() -> void:
 	GameManager.load_main_menu()
 
 func on_start_next_level() -> void:
-	level_length += 5.0
+	level_length += level_time_increase_amt
 	start_level_timer()
 	
 
 func _on_level_timer_timeout() -> void:
+	level_complete = true
 	SignalHub.emit_on_level_complete()
-	upgrade_base.turn_on(true)

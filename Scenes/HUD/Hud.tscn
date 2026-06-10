@@ -29,19 +29,36 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=824788175]
+[node name="margin_container_2" type="MarginContainer" parent="." unique_id=1893497199]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container_2" unique_id=824788175]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="LevelTime" type="Label" parent="margin_container/v_box_container" unique_id=120895821]
+[node name="LevelTime" type="Label" parent="margin_container_2/v_box_container" unique_id=120895821]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Level Time"
 
-[node name="MaxDiffLabel" type="Label" parent="margin_container/v_box_container" unique_id=302734421]
+[node name="MaxDiffLabel" type="Label" parent="margin_container_2/v_box_container" unique_id=302734421]
 layout_mode = 2
 text = "Max Diff"
 
-[node name="CurrDiffLabel" type="Label" parent="margin_container/v_box_container" unique_id=1913743906]
+[node name="CurrDiffLabel" type="Label" parent="margin_container_2/v_box_container" unique_id=1913743906]
 layout_mode = 2
 text = "Curr Diff"
+
+[node name="MaxLevelLabel" type="Label" parent="margin_container_2/v_box_container" unique_id=1116785377]
+layout_mode = 2
+
+[node name="CurrentLevelLabel" type="Label" parent="margin_container_2/v_box_container" unique_id=1261412620]
+layout_mode = 2
