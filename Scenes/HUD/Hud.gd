@@ -5,6 +5,9 @@ extends Control
 @onready var curr_diff_label: Label = $margin_container_2/v_box_container/CurrDiffLabel
 @onready var max_level_label: Label = $margin_container_2/v_box_container/MaxLevelLabel
 @onready var current_level_label: Label = $margin_container_2/v_box_container/CurrentLevelLabel
+@onready var player_dmg_label: Label = $margin_container/v_box_container/PlayerDmgLabel
+@onready var mov_speed_label: Label = $margin_container/v_box_container/MovSpeedLabel
+@onready var health_bar: HealthBar = $margin_container/v_box_container/HealthBar
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +18,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+func set_player_dmg(dmg: float) -> void:
+	if dmg == null: 
+		return
+	player_dmg_label.text = "Dmg: %.2f" % dmg
+
+func set_mov_speed(mov: float) -> void:
+	if mov == null:
+		return
+	mov_speed_label.text = "Speed: %.2f" % mov
 
 func set_level_time(time: float) -> void:
 	if time == null:

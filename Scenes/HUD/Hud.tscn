@@ -24,10 +24,19 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 
-[node name="HealthBar" parent="margin_container" unique_id=1555162091 instance=ExtResource("2_auti3")]
+[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=1700823557]
+layout_mode = 2
+
+[node name="HealthBar" parent="margin_container/v_box_container" unique_id=1555162091 instance=ExtResource("2_auti3")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="PlayerDmgLabel" type="Label" parent="margin_container/v_box_container" unique_id=816820052]
+layout_mode = 2
+
+[node name="MovSpeedLabel" type="Label" parent="margin_container/v_box_container" unique_id=13525534]
+layout_mode = 2
 
 [node name="margin_container_2" type="MarginContainer" parent="." unique_id=1893497199]
 layout_mode = 1

@@ -4,7 +4,7 @@ extends Node2D
 const PLAYER_BULLET_BASE = preload("uid://cib33sfbqqvbh")
 const PLAYER_BULLET_PRIMARY = preload("uid://brw7nqs7qauw5")
 const ENEMY_BULLET_BASE = preload("uid://c6p63th4ulpxq")
-const UPGRADE_BASE = preload("uid://c721tyqybney7")
+const UPGRADE = preload("uid://c721tyqybney7")
 
 
 func _enter_tree() -> void:
@@ -24,18 +24,19 @@ func add_upgrade(obj: Node, pos: Vector2) -> void:
 
 
 func on_create_level_complete_upgrade(pos: Vector2) -> void:
-	var scene: UpgradeBase
-	scene = UPGRADE_BASE.instantiate()
+	var scene: Upgrade
+	scene = UPGRADE.instantiate()
 	if scene:
+		scene.get_rand_upgrade()
 		call_deferred("add_upgrade", scene, pos)
 
-func on_create_player_bullet(pos: Vector2, speed_multi: float, bullet_type: PlayerBulletBase.BulletType) -> void:
+func on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, bullet_type: PlayerBulletBase.BulletType) -> void:
 	var scene: PlayerBulletBase
 	match bullet_type:
 		PlayerBulletBase.BulletType.Primary:
 			scene = PLAYER_BULLET_PRIMARY.instantiate()
 	if scene:
-		scene.setup(speed_multi)
+		scene.setup(speed_multi, dmg)
 		call_deferred("add_bullet", scene, pos)
 
 func on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float) -> void:

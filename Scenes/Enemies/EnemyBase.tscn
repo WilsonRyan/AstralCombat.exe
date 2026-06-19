@@ -9,6 +9,7 @@ height = 22.781872
 [node name="EnemyBase" type="PathFollow2D" unique_id=728413938]
 loop = false
 script = ExtResource("1_iiq2q")
+speed = 100.0
 
 [node name="EnemyVisuals" type="Node2D" parent="." unique_id=1365486234]
 

@@ -7,10 +7,11 @@ class_name Player
 @onready var timer_fire_rate: Timer = $timer_fireRate
 
 
-@export var speed: float = 350.0
-@export var prim_bullet_speed_multi: float = 1.0
-@export var prim_bullet_fire_rate: float = 0.3
-@export var health: float = 10.0
+var speed: float = 350.0
+var prim_bullet_speed_multi: float = 1.0
+var prim_bullet_fire_rate: float = 0.3
+var prim_bullet_dmg: float = 3.0
+var health: float = 100.0 
 
 var can_shoot: bool = true
 
@@ -18,6 +19,7 @@ var can_shoot: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalHub.on_player_die.connect(on_player_die)
+	SignalHub.on_player_selects_upgrade.connect(on_player_selects_upgrade)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +39,7 @@ func get_input() -> Vector2:
 func shoot() -> void:
 	if Input.is_action_pressed("ship-shoot"):
 		if can_shoot == true:
-			SignalHub.emit_on_create_player_bullet(Vector2(global_position.x,global_position.y), prim_bullet_speed_multi, PlayerBulletBase.BulletType.Primary)
+			SignalHub.emit_on_create_player_bullet(Vector2(global_position.x,global_position.y), prim_bullet_speed_multi, prim_bullet_dmg, PlayerBulletBase.BulletType.Primary)
 			can_shoot = false
 			timer_fire_rate.start()
 
@@ -51,12 +53,18 @@ func get_health() -> float:
 func on_player_die() -> void:
 	die()
 
-#func on_player_hit(dmg: float) -> void:
-	#health -= dmg
-	#print(health)
-	#if health <= 0.0:
-		#die()
-
+func on_player_selects_upgrade(type: Upgrade.UpgradeType, amt: float) -> void:
+	match type:
+		Upgrade.UpgradeType.health:
+			health += amt
+			print("health up: ", amt)
+		Upgrade.UpgradeType.dmg:
+			prim_bullet_dmg += amt
+			print("dmg up: ", amt)
+		Upgrade.UpgradeType.mov_speed:
+			speed += amt
+			print("speed up: ", amt)
+		
 
 
 func _on_timer_fire_rate_timeout() -> void:

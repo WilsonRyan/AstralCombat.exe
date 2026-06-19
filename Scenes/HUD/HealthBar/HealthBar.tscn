@@ -16,8 +16,6 @@ texture_under = ExtResource("1_dvmd6")
 texture_progress = ExtResource("2_tfj7r")
 tint_progress = Color(0, 0.90170145, 0, 1)
 script = ExtResource("1_71yg7")
-level_med = 25.0
-level_low = 10.0
 
 [node name="healthAmount" type="Label" parent="." unique_id=2059019486]
 layout_mode = 1

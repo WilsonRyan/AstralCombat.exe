@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c721tyqybney7"]
 
-[ext_resource type="Script" uid="uid://ihtvrywwycdq" path="res://Scenes/Upgrades/UpgradeBase.gd" id="1_1nw8c"]
-[ext_resource type="Texture2D" uid="uid://b8l8uvdoo6ak2" path="res://Assets/Textures/Upgrades/star.png" id="2_oil22"]
+[ext_resource type="Script" uid="uid://ihtvrywwycdq" path="res://Scenes/Upgrades/Upgrade.gd" id="1_1nw8c"]
+[ext_resource type="Texture2D" uid="uid://b8l8uvdoo6ak2" path="res://Assets/Textures/Upgrades/blue_star.png" id="2_oil22"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nt1ob"]
 radius = 25.0

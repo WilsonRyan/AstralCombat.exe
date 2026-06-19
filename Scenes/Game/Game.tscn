@@ -18,7 +18,6 @@ size_flags_vertical = 3
 [node name="Player" parent="." unique_id=1767697504 instance=ExtResource("2_gwu2e")]
 position = Vector2(191, 342)
 rotation = 1.5707964
-health = 100.0
 
 [node name="ObjectMaker" parent="." unique_id=826657136 instance=ExtResource("3_xbxml")]
 

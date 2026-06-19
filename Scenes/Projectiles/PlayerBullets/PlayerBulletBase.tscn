@@ -11,7 +11,6 @@ rotation = 1.5707964
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_ctd45")
-_dmg = 10.0
 
 [node name="sprite_2d" type="Sprite2D" parent="." unique_id=2042580938]
 scale = Vector2(3, 3)

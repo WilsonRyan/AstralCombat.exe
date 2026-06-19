@@ -10,7 +10,7 @@ script = ExtResource("2_7j3ky")
 prim_bullet_speed_multi = 0.5
 prim_bullet_fire_rate = 3.0
 prim_bullet_dmg = 22.0
-speed = 200.0
+speed = 500.0
 difficulty = 2.0
 
 [node name="sprite_2d" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="0" unique_id=663644159]

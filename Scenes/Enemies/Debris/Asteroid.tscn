@@ -8,7 +8,7 @@
 scale = Vector2(3, 3)
 script = ExtResource("2_ug6jj")
 spin_speed = 1.0
-speed = 100.0
+speed = 400.0
 
 [node name="sprite_2d" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="0" unique_id=663644159]
 texture = ExtResource("2_326qh")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8l8uvdoo6ak2"
-path="res://.godot/imported/star.png-01854db86c2c42020336541c121251c8.ctex"
+uid="uid://dncq20c7pwb6k"
+path="res://.godot/imported/bar_round_gloss_large_square.png-be65a771bf6aa0502ee7d7bc7e7cbc35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Upgrades/star.png"
-dest_files=["res://.godot/imported/star.png-01854db86c2c42020336541c121251c8.ctex"]
+source_file="res://Assets/Textures/Upgrades/bar_round_gloss_large_square.png"
+dest_files=["res://.godot/imported/bar_round_gloss_large_square.png-be65a771bf6aa0502ee7d7bc7e7cbc35.ctex"]
 
 [params]
 

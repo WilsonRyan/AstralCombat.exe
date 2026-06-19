@@ -1,5 +1,15 @@
+Sesh 13: 2026-06-19 AM
+Pushed: Upgrade apply to the player now. Health, bullet dmg, player speed all controlled in the player scene. Upgrade amounts are all controlled in the Upgrade scene.
+Learned: Better design choices when it comes to sending variables across scenes. Instead of putting a player reference in a the bullet scene, just have the signal send the value to the player.
+Next: When the level completes, show X number of distinct upgrades (between 1-X), X being the number of available upgrades. That way I can quickly edit how many upgrades the player has to pick from on level complete.
+
+Sesh 12: 2026-06-10 AM
+Pushed: Level complete spawns a singular random upgrade. No push though since game is currently broken.
+Learned: The design of having multiple upgrades that interact with various scenes makes it complicated...practiced a lot of matching enum types and passing those types into SignalHub signals.
+Next: Upgrade needs to actually APPLY the upgrade to the player. Need to move the HEALTH and BULLET DMG into the Player scene where all the upgrade info will be controlled. Then have the level complete spawn X number of upgrades that are all distinct.
+
 Sesh 11: 2026-06-09 PM
-Pushed: The wave spawns the end of wave powerup ONLY if there are no enemies on the screen now. After completing X amount of levels the game returns the player to the menu, and prints "YOU WIN" to the console. Creation of the end of wave upgrade is done in the ObjectMaker scene now, instead of in the Game scene.
+Pushed: The wave spawns the end of wave powerup ONLY if there are no enemies on the screen now. After completing X amount of levels the game returns the player to the menu, and prints YOU WIN to the console. Creation of the end of wave upgrade is done in the ObjectMaker scene now, instead of in the Game scene.
 Learned: Reminder on how to effectively use the ObjectMaker to create objects in the Game scene that aren't part of the WaveManager.
 Next: Create 3 different power up options. +movement speed, +bullet dmg, +player health. Once done, then have the end of wave spawn TWO distinct random upgrades that apply to the player when the player flies over to one which progresses the game to the next level.
 
