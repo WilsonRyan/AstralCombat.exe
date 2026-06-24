@@ -12,14 +12,17 @@ var prim_dmg_upgrade_amt = 20.0
 var mov_speed_upgrade_amt = 100.0
 
 var _upgrade_amt = 0.0
+var _upgrade_type: UpgradeType
+@export var upgrade_array: Array[Upgrade.UpgradeType]
 
 @onready var sprite_2d: Sprite2D = $sprite_2d
 
-var _upgrade_type: UpgradeType
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("level_upgrades")
 	match _upgrade_type:
 		Upgrade.UpgradeType.health:
 			sprite_2d.texture = BAR_ROUND_GLOSS_LARGE_SQUARE
@@ -35,6 +38,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+
+func setup(type: UpgradeType) -> void: 
+	_upgrade_type = type
 
 func get_rand_upgrade() -> void:
 	_upgrade_type = UpgradeType.values().pick_random()
@@ -52,4 +58,4 @@ func _on_area_entered(area: Area2D) -> void:
 		print(endLevelStr)
 		SignalHub.emit_on_player_selects_upgrade(_upgrade_type, _upgrade_amt)
 		SignalHub.emit_on_start_next_level()
-		turn_on(false)
+		get_tree().call_group("level_upgrades", "queue_free")

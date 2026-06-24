@@ -11,11 +11,13 @@ extends Node2D
 var current_level: int = 1
 var level_length: float = 3.0
 var level_complete: bool = false
+var level_complete_upgrade_amt: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalHub.on_player_die.connect(on_player_die)
 	SignalHub.on_start_next_level.connect(on_start_next_level)
+	SignalHub.on_enemy_dequeue.connect(on_enemy_dequeue)
 	hud.health_bar.setup(player)
 	start_level_timer()
 
@@ -27,14 +29,7 @@ func _process(_delta: float) -> void:
 	hud.set_level(max_level, current_level)
 	hud.set_player_dmg(player.prim_bullet_dmg)
 	hud.set_mov_speed(player.speed)
-	if level_complete == true and wave_manager.current_wave_diff == 0:
-		if current_level == max_level:
-			print("YOU WIN THE RUN!")
-			GameManager.load_main_menu()
-		else:
-			SignalHub.emit_on_create_level_complete_upgrade(Vector2(1000,360))
-			level_complete = false
-			current_level += 1
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape") == true:
@@ -46,6 +41,16 @@ func start_level_timer() -> void:
 	level_timer.start()
 	level_timer.one_shot = true
 
+
+func on_enemy_dequeue(_eny_diff: float) -> void:
+	if level_complete == true and wave_manager.current_wave_diff <= 0:
+		if current_level == max_level:
+			print("YOU WIN THE RUN!")
+			GameManager.load_main_menu()
+		else:
+			SignalHub.emit_on_create_level_complete_upgrades(level_complete_upgrade_amt)
+			level_complete = false
+			current_level += 1
 
 func on_player_die() -> void:
 	GameManager.load_main_menu()

@@ -1,3 +1,13 @@
+Sesh 15: 2026-06-24 AM
+Pushed: Wave end spawns X number of distinct upgrades to pick from and all dequeue when the player selects one of them.
+Learned: How arrays of enumerated class is just an array of ints and how to use the groups to dequeue multiple objects in a scene.
+Next: Basic enemy ship behavior work. Have the ship face the direction of movement.
+
+Sesh 14: 2026-06-23 AM
+Pushed: N/A. Continued working on spawning multiple distinct random upgrades.
+Learned: Moved around some Signals so that I am not checking for wave and game complete in the process() of the Game scene.
+Next: Continue in the ObjectMaker scene, to have the Game spawn multiple X amount of upgrades on WaveComplete.
+
 Sesh 13: 2026-06-19 AM
 Pushed: Upgrade apply to the player now. Health, bullet dmg, player speed all controlled in the player scene. Upgrade amounts are all controlled in the Upgrade scene.
 Learned: Better design choices when it comes to sending variables across scenes. Instead of putting a player reference in a the bullet scene, just have the signal send the value to the player.

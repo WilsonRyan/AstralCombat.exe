@@ -4,7 +4,7 @@ extends Node
 
 signal on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, bullet_type: PlayerBulletBase.BulletType)
 signal on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float)
-signal on_create_level_complete_upgrade(pos: Vector2)
+signal on_create_level_complete_upgrades(amt: int)
 signal on_player_selects_upgrade(upgrade_type: Upgrade.UpgradeType, amt: float)
 signal on_player_hit(dmg: float)
 signal on_player_die()
@@ -20,8 +20,8 @@ func emit_on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, 
 func emit_on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float) -> void:
 	on_create_enemy_bullet.emit(pos, dir, speed_multi, bullet_type, dmg)
 
-func emit_on_create_level_complete_upgrade(pos: Vector2) -> void:
-	on_create_level_complete_upgrade.emit(pos)
+func emit_on_create_level_complete_upgrades(amt: int) -> void:
+	on_create_level_complete_upgrades.emit(amt)
 
 func emit_on_player_selects_upgrade(upgrade_type: Upgrade.UpgradeType, amt: float) -> void:
 	on_player_selects_upgrade.emit(upgrade_type, amt)
