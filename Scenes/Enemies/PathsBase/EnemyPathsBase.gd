@@ -12,4 +12,5 @@ func _ready() -> void:
 
 
 func get_paths_list() -> Array[Path2D]:
+	print(_paths_list.size())
 	return _paths_list

@@ -1,26 +1,46 @@
 extends EnemyBase
 
 @onready var timer_fire_rate: Timer = $timer_fireRate
+@onready var timer_stop: Timer = $timer_stop
 
 
-@export var prim_bullet_speed_multi: float = 0.5
-@export var prim_bullet_fire_rate: float = 3.0
-@export var prim_bullet_dmg: float = 10.0
+var prim_bullet_speed_multi: float = 0.5
+var prim_bullet_fire_rate: float = 0.3
+var prim_bullet_dmg: float = 10.0
+var stop_time: float = 1.0
+var ship_speed: float = 300.0
 
 
-var can_shoot: bool = true
+var can_shoot: bool = false
+var has_stopped: bool = false
+var can_move: bool = true
 
+var _path: Path2D = null
+var _stop_point: Vector2 = Vector2(0,0)
+var _stop_progress: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	speed = ship_speed
+	enemy_visuals.show()
+	_path = get_parent()
+	_stop_point = _path.curve.get_point_position(1)
+	_stop_progress = _path.curve.get_closest_offset(_stop_point) - 10
+	timer_stop.wait_time = stop_time
 	timer_fire_rate.wait_time = prim_bullet_fire_rate
+	timer_fire_rate.start()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if dead == false:
-		shoot()
-	super(delta)
+	if progress >= _stop_progress and has_stopped == false:
+		if can_move == true:
+			timer_stop.start()
+		can_move = false
+		can_shoot = true
+	if can_move == true:
+		super(delta)
 
 
 func shoot() -> void:
@@ -31,5 +51,13 @@ func shoot() -> void:
 
 
 func _on_timer_fire_rate_timeout() -> void:
-	can_shoot = true
+	if dead == false and can_shoot == true:
+		shoot()
 	timer_fire_rate.wait_time = prim_bullet_fire_rate
+
+
+func _on_timer_stop_timeout() -> void:
+	has_stopped = true
+	can_move = true
+	can_shoot = false
+	enemy_visuals.rotation_degrees = 90

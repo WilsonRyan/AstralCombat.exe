@@ -33,7 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if current_wave_diff < _wave_difficulty and level_complete == false:
-		spawn_enemy(enemyList.pick_random())
+		spawn_random_enemy()
 
 #MUST ADD EACH ENEMY TO THIS FUNCTION
 func get_enemy_path(enemy_type: EnemyBase.EnemyType) -> EnemyPathsBase:
@@ -55,8 +55,9 @@ func create_enemy(enemy_type: EnemyBase.EnemyType) -> EnemyBase:
 	current_wave_diff += scene.get_difficulty()
 	return scene
 
-func spawn_enemy(enemy_type: EnemyBase.EnemyType) -> void:
+func spawn_random_enemy() -> void:
 	var path: Path2D = null
+	var enemy_type: EnemyBase.EnemyType = enemyList.pick_random()
 	if can_spawn == true and level_complete == false:
 		path = get_enemy_path(enemy_type).get_paths_list().pick_random()
 		path.add_child(create_enemy(enemy_type))

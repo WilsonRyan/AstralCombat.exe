@@ -22,11 +22,59 @@ point_count = 2
 
 [node name="EnemyPathsAsteroid" unique_id=1541130569 instance=ExtResource("1_uyb85")]
 
-[node name="path_2d" type="Path2D" parent="." index="0" unique_id=370569543]
+[node name="path_2d-0" type="Path2D" parent="." index="0" unique_id=1947817086]
+position = Vector2(1, -139)
 curve = SubResource("Curve2D_uyb85")
 
-[node name="path_2d_2" type="Path2D" parent="." index="1" unique_id=993649606]
+[node name="path_2d-1" type="Path2D" parent="." index="1" unique_id=83469054]
+position = Vector2(-1, -100)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-2" type="Path2D" parent="." index="2" unique_id=694386019]
+position = Vector2(0, -51)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-3" type="Path2D" parent="." index="3" unique_id=370569543]
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-4" type="Path2D" parent="." index="4" unique_id=790275384]
+position = Vector2(7, 48)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-5" type="Path2D" parent="." index="5" unique_id=2071959145]
+position = Vector2(3, 97)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-6" type="Path2D" parent="." index="6" unique_id=2035389500]
+position = Vector2(4, 148)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-7" type="Path2D" parent="." index="7" unique_id=993649606]
 curve = SubResource("Curve2D_kg6lx")
 
-[node name="path_2d_3" type="Path2D" parent="." index="2" unique_id=1276268401]
+[node name="path_2d-8" type="Path2D" parent="." index="8" unique_id=383269729]
+position = Vector2(1, 246)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-9" type="Path2D" parent="." index="9" unique_id=831440766]
+position = Vector2(-6, 296)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-10" type="Path2D" parent="." index="10" unique_id=1925721824]
+position = Vector2(-1, 351)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-11" type="Path2D" parent="." index="11" unique_id=1276268401]
 curve = SubResource("Curve2D_sate4")
+
+[node name="path_2d-12" type="Path2D" parent="." index="12" unique_id=1930912366]
+position = Vector2(4, 446)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-13" type="Path2D" parent="." index="13" unique_id=1494019567]
+position = Vector2(5, 492)
+curve = SubResource("Curve2D_uyb85")
+
+[node name="path_2d-14" type="Path2D" parent="." index="14" unique_id=1199217134]
+position = Vector2(6, 537)
+curve = SubResource("Curve2D_uyb85")

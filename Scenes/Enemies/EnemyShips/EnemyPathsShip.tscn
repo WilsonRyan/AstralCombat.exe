@@ -4,21 +4,35 @@
 
 [sub_resource type="Curve2D" id="Curve2D_2uw14"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1331, -145, 142.50002, -88.75001, -142.50002, 88.75001, 835, 104, 118.75001, -105.00001, -118.75001, 105.00001, 673, 499, 0, 0, 0, 0, -264, 709)
+"points": PackedVector2Array(0, 0, 0, 0, 1412, 240, 0, 0, 0, 0, 850, 240, 1.2500076, -121.250015, -1.2500076, 121.250015, 462, 373, 5.000007, -188.75003, -5.000007, 188.75003, 733, 627, 0, 0, 0, 0, -178, 668)
 }
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_avo53"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1333, 893, 107.50001, 220.00002, -107.50001, -220.00002, 816, 555, 187.50002, 68.75001, -187.50002, -68.75001, 665, 91, 0, 0, 0, 0, -225, -124)
-}
-point_count = 4
+point_count = 5
 
 [node name="EnemyPathsShip" unique_id=1541130569 instance=ExtResource("1_2uw14")]
 
-[node name="path_2d" type="Path2D" parent="." index="0" unique_id=838020110]
+[node name="path_2d" type="Path2D" parent="." index="0" unique_id=458771424]
+position = Vector2(3, -177)
 curve = SubResource("Curve2D_2uw14")
 
-[node name="path_2d_2" type="Path2D" parent="." index="1" unique_id=1730009493]
-position = Vector2(-29, -16)
-curve = SubResource("Curve2D_avo53")
+[node name="path_2d_4" type="Path2D" parent="." index="1" unique_id=552062432]
+position = Vector2(3, -77)
+curve = SubResource("Curve2D_2uw14")
+
+[node name="path_2d_6" type="Path2D" parent="." index="2" unique_id=1045973380]
+position = Vector2(3, 23)
+curve = SubResource("Curve2D_2uw14")
+
+[node name="path_2d_2" type="Path2D" parent="." index="3" unique_id=2132522120]
+position = Vector2(3, 693)
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_2uw14")
+
+[node name="path_2d_9" type="Path2D" parent="." index="4" unique_id=849285396]
+position = Vector2(3, 803)
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_2uw14")
+
+[node name="path_2d_11" type="Path2D" parent="." index="5" unique_id=888293372]
+position = Vector2(3, 903)
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_2uw14")

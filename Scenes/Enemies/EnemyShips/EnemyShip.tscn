@@ -7,13 +7,13 @@
 [node name="EnemyShip" unique_id=728413938 instance=ExtResource("1_fklwt")]
 scale = Vector2(3, 3)
 script = ExtResource("2_7j3ky")
-prim_bullet_speed_multi = 0.5
-prim_bullet_fire_rate = 3.0
-prim_bullet_dmg = 22.0
 speed = 500.0
 difficulty = 2.0
 
-[node name="sprite_2d" parent="EnemyVisuals" parent_id_path=PackedInt32Array(1365486234) index="0" unique_id=663644159]
+[node name="EnemyVisuals" parent="." index="0" unique_id=1365486234]
+rotation = 1.5707964
+
+[node name="sprite_2d" parent="EnemyVisuals" index="0" unique_id=663644159]
 texture = ExtResource("3_7j3ky")
 
 [node name="collision_shape_2d" parent="EnemyVisuals/Hitbox" parent_id_path=PackedInt32Array(851868901) index="0" unique_id=660862561]
@@ -23,4 +23,7 @@ rotation = 1.5707964
 [node name="timer_fireRate" type="Timer" parent="." index="1" unique_id=1681454475]
 wait_time = 3.0
 
+[node name="timer_stop" type="Timer" parent="." index="2" unique_id=2065465448]
+
 [connection signal="timeout" from="timer_fireRate" to="." method="_on_timer_fire_rate_timeout"]
+[connection signal="timeout" from="timer_stop" to="." method="_on_timer_stop_timeout"]

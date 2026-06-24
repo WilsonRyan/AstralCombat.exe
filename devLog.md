@@ -1,5 +1,10 @@
+Sesh 16: 2026-06-24 PM
+Pushed: Enemy ships have 6 different paths that are all the same path but in different Y start points. The enemy ship moves, then stops and shoots, then finishes his path.
+Learned: Having random Y position for the Path would be hard since I would have to instantiate a new path for each ship, rather than assigning a ship to a present path.
+Next: There is a bug where the ships appear to spawn occasionally, but are invisible. I need to fix this bug.
+
 Sesh 15: 2026-06-24 AM
-Pushed: Wave end spawns X number of distinct upgrades to pick from and all dequeue when the player selects one of them.
+Pushed: Wave end spawns X number of distinct upgrades to pick from and all dequeue when the player selects one of them. Added 11 more asteroid paths to make it seem more random where they spawn.
 Learned: How arrays of enumerated class is just an array of ints and how to use the groups to dequeue multiple objects in a scene.
 Next: Basic enemy ship behavior work. Have the ship face the direction of movement.
 
