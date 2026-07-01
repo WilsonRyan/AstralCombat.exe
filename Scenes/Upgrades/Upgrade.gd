@@ -38,20 +38,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-
+## Sets the upgrade to whatever type I need it to be
+## Called by: ObjectMaker.gd in on_create_level_complete_upgrades(amt)
 func setup(type: UpgradeType) -> void: 
 	_upgrade_type = type
 
-func get_rand_upgrade() -> void:
-	_upgrade_type = UpgradeType.values().pick_random()
 
-
-func turn_on(val: bool) -> void:
-	set_deferred("monitoring", val)
-	set_deferred("monitorable", val)
-	visible = val
-
-
+## Emits all the signals needed to apply the upgrade the player selected and progress to the next level, then removes the upgrades.
 func _on_area_entered(area: Area2D) -> void:
 	if area is Player:
 		var endLevelStr = "Player selects %s and goes to the next level" % _upgrade_type

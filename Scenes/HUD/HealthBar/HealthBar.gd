@@ -19,7 +19,8 @@ var level_low: float = max_health * 0.35
 func _ready() -> void:
 	SignalHub.on_player_hit.connect(on_player_hit)
 
-
+## Updates the max health in the health bar. Example, max health increases by 10, so increase max health and current health by 10
+## Called by: Game.gd in on_start_next_level()
 func update_max_health(player: Player) -> void:
 	if player == null:
 		return
@@ -35,6 +36,9 @@ func update_max_health(player: Player) -> void:
 	health_amount.text = "%.1f/%.1f" % [current_health, max_health]
 	set_color()
 
+
+## Sets up the health bar, setting the max value to max_health and current value to start_health and setting the thresholds for red/yellow/green health bar alerts
+## Called by: Game.gd in _ready()
 func setup(player: Player) -> void:
 	if player != null:
 		max_health = player.get_health()
@@ -48,6 +52,9 @@ func setup(player: Player) -> void:
 	health_amount.text = "%.1f/%.1f" % [current_health, max_health]
 	set_color()
 
+
+## Sets the color values for the health bar based on the level_low, med, and high health values (red, yellow, green)
+## Called by: HealthBar.gd in setup() && HealthBar.gd in incr_value(v)
 func set_color() -> void:
 	if value < level_low:
 		tint_progress = COLOR_DANGER
@@ -56,17 +63,17 @@ func set_color() -> void:
 	else:
 		tint_progress = COLOR_GOOD
 
+## Decreases the players health in the health bar by v amount, then updates the text and color of the health bar
+## Called by: HealthBar.gd in on_player_hit(dmg)
 func incr_value(v: float) -> void:
 	current_health -= v
 	value = current_health
 	health_amount.text = "%d/%d" % [current_health, max_health]
 	set_color()
 
-func take_damage(v: float) -> void:
-	incr_value(v)
 
-
-
+## Applies damage to the player and updates the health bar
+## Called by: SignalHub.gd in emit_on_player_hit(dmg) && Player.gd in _on_area_entered(area) && EnemyBulletBase.gd in _on_area_entered(area)
 func on_player_hit(dmg: float) -> void:
 	incr_value(dmg)
 	value = current_health

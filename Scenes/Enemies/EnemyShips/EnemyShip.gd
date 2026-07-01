@@ -42,20 +42,21 @@ func _process(delta: float) -> void:
 	if can_move == true:
 		super(delta)
 
-
+## Makes the enemy "shoot" an EnemyBullet scene from the enemies location in the left direction ONLY if the can_shoot boolean is true, then starts the fire_rate timer.
+## Called by: EnemyShip.gd in _on_timer_fire_rate_timeout()
 func shoot() -> void:
 	if can_shoot == true:
 		SignalHub.emit_on_create_enemy_bullet(Vector2(global_position.x,global_position.y), Vector2.LEFT, prim_bullet_speed_multi, EnemyBulletBase.BulletType.Regular, prim_bullet_dmg)
 		can_shoot = false
 		timer_fire_rate.start()
 
-
+## When the timer finishes based on the prim_bullet_fire_rate, then call the shoot() function
 func _on_timer_fire_rate_timeout() -> void:
 	if dead == false and can_shoot == true:
 		shoot()
 	timer_fire_rate.wait_time = prim_bullet_fire_rate
 
-
+## Once the enemy stops in its stationary position for stop_time amount, then make enemy unable to shoot and start moving again.
 func _on_timer_stop_timeout() -> void:
 	has_stopped = true
 	can_move = true

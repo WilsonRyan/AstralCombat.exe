@@ -1,5 +1,9 @@
 extends Node2D
 
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
 
 const ASTEROID = preload("uid://duxjvl52lken3")
 @onready var enemy_paths_asteroid: EnemyPathsBase = $EnemyPaths/EnemyPathsAsteroid

@@ -1,5 +1,9 @@
 extends Node2D
 
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
+#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
 
 const PLAYER_BULLET_BASE = preload("uid://cib33sfbqqvbh")
 const PLAYER_BULLET_PRIMARY = preload("uid://brw7nqs7qauw5")
@@ -38,13 +42,6 @@ func on_create_level_complete_upgrades(amt: int) -> void:
 		if scene:
 			call_deferred("add_upgrade", scene, Vector2(1000, (y_inter * (i+1) ) ))
 
-
-func create_level_complete_upgrade(pos: Vector2) -> void:
-	var scene: Upgrade
-	scene = UPGRADE.instantiate()
-	if scene:
-		scene.get_rand_upgrade()
-		call_deferred("add_upgrade", scene, pos)
 
 func on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, bullet_type: PlayerBulletBase.BulletType) -> void:
 	var scene: PlayerBulletBase

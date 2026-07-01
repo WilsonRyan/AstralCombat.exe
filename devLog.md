@@ -1,7 +1,12 @@
+Sesh 17: 2026-7-1 PM
+Pushed: Added comments to a majority of my functions. The comments explain what the function does and where it is used.
+Learned: How to create useful comments in the code.
+Next: Add comments to ObjectMaker.gd, Player.gd, WaveManager.gd, all the Projectile scripts, and all of my Global scripts.
+
 Sesh 16: 2026-06-24 PM
 Pushed: Enemy ships have 6 different paths that are all the same path but in different Y start points. The enemy ship moves, then stops and shoots, then finishes his path.
 Learned: Having random Y position for the Path would be hard since I would have to instantiate a new path for each ship, rather than assigning a ship to a present path.
-Next: There is a bug where the ships appear to spawn occasionally, but are invisible. I need to fix this bug.
+Next: Set the level length longer and give the game a shot and then decide what I want to do next based on how it plays. This weekend I need to add comments to all of my functions on what they do and what they interact with.
 
 Sesh 15: 2026-06-24 AM
 Pushed: Wave end spawns X number of distinct upgrades to pick from and all dequeue when the player selects one of them. Added 11 more asteroid paths to make it seem more random where they spawn.

@@ -4,35 +4,38 @@
 
 [sub_resource type="Curve2D" id="Curve2D_2uw14"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1412, 240, 0, 0, 0, 0, 850, 240, 1.2500076, -121.250015, -1.2500076, 121.250015, 462, 373, 5.000007, -188.75003, -5.000007, 188.75003, 733, 627, 0, 0, 0, 0, -178, 668)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -500, 0, 1, -167.39445, -1, 167.39445, -1108, 141, 2.942161, -148.45056, -2.942161, 148.45056, -659, 324, 0, 0, 0, 0, -1748, 467)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_avo53"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -500, 0, 1, 167.394, -1, -167.394, -1108, -141, 2.942, 148.451, -2.942, -148.421, -659, -324, 0, 0, 0, 0, -1748, -467)
 }
 point_count = 5
 
 [node name="EnemyPathsShip" unique_id=1541130569 instance=ExtResource("1_2uw14")]
 
 [node name="path_2d" type="Path2D" parent="." index="0" unique_id=458771424]
-position = Vector2(3, -177)
+position = Vector2(1500, 40)
 curve = SubResource("Curve2D_2uw14")
 
 [node name="path_2d_4" type="Path2D" parent="." index="1" unique_id=552062432]
-position = Vector2(3, -77)
+position = Vector2(1500, 140)
 curve = SubResource("Curve2D_2uw14")
 
 [node name="path_2d_6" type="Path2D" parent="." index="2" unique_id=1045973380]
-position = Vector2(3, 23)
+position = Vector2(1500, 240)
 curve = SubResource("Curve2D_2uw14")
 
-[node name="path_2d_2" type="Path2D" parent="." index="3" unique_id=2132522120]
-position = Vector2(3, 693)
-scale = Vector2(1, -1)
-curve = SubResource("Curve2D_2uw14")
+[node name="path_2d_2" type="Path2D" parent="." index="3" unique_id=1697778523]
+position = Vector2(1500, 480)
+curve = SubResource("Curve2D_avo53")
 
-[node name="path_2d_9" type="Path2D" parent="." index="4" unique_id=849285396]
-position = Vector2(3, 803)
-scale = Vector2(1, -1)
-curve = SubResource("Curve2D_2uw14")
+[node name="path_2d_3" type="Path2D" parent="." index="4" unique_id=657948701]
+position = Vector2(1500, 580)
+curve = SubResource("Curve2D_avo53")
 
-[node name="path_2d_11" type="Path2D" parent="." index="5" unique_id=888293372]
-position = Vector2(3, 903)
-scale = Vector2(1, -1)
-curve = SubResource("Curve2D_2uw14")
+[node name="path_2d_5" type="Path2D" parent="." index="5" unique_id=951195425]
+position = Vector2(1500, 680)
+curve = SubResource("Curve2D_avo53")
