@@ -1,9 +1,5 @@
 extends Node2D
 
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
 
 const ASTEROID = preload("uid://duxjvl52lken3")
 @onready var enemy_paths_asteroid: EnemyPathsBase = $EnemyPaths/EnemyPathsAsteroid
@@ -18,11 +14,10 @@ var enemyList: Array[EnemyBase.EnemyType] = [
 @onready var spawn_timer: Timer = $SpawnTimer
 
 
-var _spawn_time: float = 0.5
+var _spawn_time: float = 1.0
 var _wave_difficulty: float = 10.0
 
 var level_complete: bool = false
-var can_spawn: bool = true
 var current_wave_diff: float = 0.0
 
 
@@ -36,10 +31,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if current_wave_diff < _wave_difficulty and level_complete == false:
-		spawn_random_enemy()
+	pass
 
-#MUST ADD EACH ENEMY TO THIS FUNCTION
+## MUST ADD EACH NEW ENEMY TO THIS FUNCTION
+## Returns the list of paths that each enemy is assigned to. 
+## Called by: WaveManager.gd in spawn_random_enemy()
 func get_enemy_path(enemy_type: EnemyBase.EnemyType) -> EnemyPathsBase:
 	var enemy_paths: EnemyPathsBase
 	match enemy_type:
@@ -49,6 +45,8 @@ func get_enemy_path(enemy_type: EnemyBase.EnemyType) -> EnemyPathsBase:
 			enemy_paths = enemy_paths_ship
 	return enemy_paths
 
+## Creates and returns an enemy and adds the difficulty of that enemy to the current wave total difficulty.
+## Called by: WaveManager.gd in spawn_random_enemy()
 func create_enemy(enemy_type: EnemyBase.EnemyType) -> EnemyBase:
 	var scene: EnemyBase
 	match enemy_type:
@@ -59,30 +57,40 @@ func create_enemy(enemy_type: EnemyBase.EnemyType) -> EnemyBase:
 	current_wave_diff += scene.get_difficulty()
 	return scene
 
+## Creates a random enemy everytime the spawn_timer runs out and there is room for more total difficulty in the wave
+## Called by: WaveManager.gd in _on_spawn_timer_timeout()
 func spawn_random_enemy() -> void:
 	var path: Path2D = null
 	var enemy_type: EnemyBase.EnemyType = enemyList.pick_random()
-	if can_spawn == true and level_complete == false:
+	if level_complete == false and current_wave_diff < _wave_difficulty:
 		path = get_enemy_path(enemy_type).get_paths_list().pick_random()
 		path.add_child(create_enemy(enemy_type))
-		can_spawn = false
 		start_spawn_timer()
 
-
+## Increases the wave difficulty total amount allowed for the next level
+## Called by: SignalHub.gd in emit_on_start_next_level() && Upgrade.gd in _on_area_entered(area)
 func on_start_next_level() -> void:
 	level_complete = false
 	_wave_difficulty += 2
 
+## Removes the difficulty from the wave difficulty total when an enemy is dequeued from the scene NOT when the enemy dies
+## Called by: SignalHub.gd in emit_on_enemy_dequeue(eny_diff) && EnemyBase.gd in _process(delta)
 func on_enemy_dequeue(eny_diff: float) -> void:
 	current_wave_diff -= eny_diff
 
+## Sets level_complete to true
+## Called by: SignalHub.gd in emit_on_level_complete() && Game.gd in _on_level_timer_timeout()
 func on_level_complete() -> void:
 	level_complete = true
 	print("LEVEL COMPLETE")
 
+## Starts updates the spawn timer if needed then starts the spawn timer
+## Called by: WaveManager.gd in _ready()
 func start_spawn_timer() -> void:
 	spawn_timer.wait_time = _spawn_time
 	spawn_timer.start()
 
+## Spawns a random new enemy when the spawn timer runs out
+## Called by: N/A
 func _on_spawn_timer_timeout() -> void:
-	can_spawn = true
+	spawn_random_enemy()

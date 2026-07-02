@@ -1,3 +1,8 @@
+Sesh 18: 2026-7-2 PM
+Pushed: Added comments to the rest of my functions. Now ALL functions have comments associated with them on what they do and where it is called.
+Learned: More practice on how to create an phrase useful code comments.
+Next: Set the level length longer and give the game a shot and then decide what I want to do next based on how it plays.
+
 Sesh 17: 2026-7-1 PM
 Pushed: Added comments to a majority of my functions. The comments explain what the function does and where it is used.
 Learned: How to create useful comments in the code.

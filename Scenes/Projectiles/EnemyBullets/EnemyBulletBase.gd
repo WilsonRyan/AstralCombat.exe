@@ -17,17 +17,20 @@ func _process(delta: float) -> void:
 	position += delta * _direction * _speed
 
 
-
+## Sets the bullet's speed, direction, and dmg amount
+## Called by: ObjectMaker.gd in on_create_enemy_bullet(pos, dir, speed_multi, bullet_type, dmg)
 func setup(dir: Vector2, speed_multi: float, dmg: float) -> void:
 	_speed = _speed * speed_multi
 	_direction = dir
 	_dmg = dmg
 
+## Returns the dmg of the bullet
+## Called by: EnemyBulletBase.gd in _on_area_entered(area)
 func get_dmg() -> float:
 	return _dmg
 
 
-
+## Does dmg to the player and removes the bullet when it hits the player
 func _on_area_entered(area: Area2D) -> void:
 	if area is Player:
 		SignalHub.emit_on_player_hit(get_dmg())

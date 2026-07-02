@@ -20,14 +20,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += delta * _direction * _speed
 
+## Sets up the bullet speed and dmg
+## Called by: ObjectMaker.gd in on_create_player_bullet(pos, speed_multi, dmg, bullet_type)
 func setup(speed_multi: float, dmg: float) -> void:
 	_speed = _speed * speed_multi
 	_dmg = dmg
 
+## Returns the dmg of the bullet
+## Called by: EnemyBase.gd in  _on_hitbox_area_entered(area)
 func get_dmg() -> float:
 	return _dmg
 
 
-
+## Removes the bullet when it hits something
 func _on_area_entered(_area: Area2D) -> void:
 	queue_free()

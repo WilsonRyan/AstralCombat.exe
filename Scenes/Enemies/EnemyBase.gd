@@ -22,8 +22,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 ## Returns the difficulty value for the enemy scene
-## Called by: EnemyBase.gd in _process(delta)
-## Called by: WaveManager.gd in create_enemy(enemy_type)
+## Called by: EnemyBase.gd in _process(delta) && WaveManager.gd in create_enemy(enemy_type)
 func get_difficulty() -> float:
 	return difficulty
 

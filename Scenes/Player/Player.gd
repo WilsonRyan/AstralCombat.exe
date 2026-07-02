@@ -1,9 +1,5 @@
 extends Area2D
 
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
 
 class_name Player
 
@@ -35,11 +31,14 @@ func _process(delta: float) -> void:
 	shoot()
 
 
-
+## Moves the ship in any direction at a normalized speed when the player moves the joystick
+## Called by: Player.gd in _process(delta)
 func get_input() -> Vector2:
 	var v = Vector2(Input.get_axis("ship-left","ship-right"), Input.get_axis("ship-up", "ship-down"))
 	return v.normalized()
 
+## Shoots a bullet when the player presses the shoot button
+## Called by: Player.gd in _process(delta)
 func shoot() -> void:
 	if Input.is_action_pressed("ship-shoot"):
 		if can_shoot == true:
@@ -47,16 +46,24 @@ func shoot() -> void:
 			can_shoot = false
 			timer_fire_rate.start()
 
+## Deletes the player
+## Called by: Player.gd on_player_die()
 func die() -> void:
 	print("PLAYER DEAD")
 	queue_free()
 
+## Returns the value of health the player has
+## Called by: HealthBar.gd in update_max_health(player) && HealthBar.gd in setup(player)
 func get_health() -> float:
 	return health
 
+## Deletes the player
+## Called by: SignalHub.gd emit_on_player_die() && HealthBar.gd in on_player_hit(dmg)
 func on_player_die() -> void:
 	die()
 
+## Applies the upgrade to the player when the player flies into the upgrade.
+## Called by: SignalHub.gd in emit_on_player_selects_upgrade(upgrade_type, amt) && Upgrade.gd in _on_area_entered(area)
 func on_player_selects_upgrade(type: Upgrade.UpgradeType, amt: float) -> void:
 	match type:
 		Upgrade.UpgradeType.health:
@@ -70,12 +77,14 @@ func on_player_selects_upgrade(type: Upgrade.UpgradeType, amt: float) -> void:
 			print("speed up: ", amt)
 		
 
-
+## When the fire_rate timer ends, it allows the player to shoot again, and adjusts to a new prim_bullet_fire_rate if needed
+## Called by: N/A
 func _on_timer_fire_rate_timeout() -> void:
 	can_shoot = true
 	timer_fire_rate.wait_time = prim_bullet_fire_rate
 
-
+## Player takes 25 when they collide with an enemy
+## Called by: N/A
 func _on_area_entered(area: Area2D) -> void:
 	if area is not EnemyBulletBase:
 		SignalHub.emit_on_player_hit(25)

@@ -1,32 +1,31 @@
 extends Node2D
 
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
-#### NEED TO ADD COMMENTS TO THIS GDSCRIPT ####
 
 const PLAYER_BULLET_BASE = preload("uid://cib33sfbqqvbh")
 const PLAYER_BULLET_PRIMARY = preload("uid://brw7nqs7qauw5")
 const ENEMY_BULLET_BASE = preload("uid://c6p63th4ulpxq")
 const UPGRADE = preload("uid://c721tyqybney7")
 
-
+## Connects all of the signals to their corresponding functions
 func _enter_tree() -> void:
 	SignalHub.on_create_player_bullet.connect(on_create_player_bullet)
 	SignalHub.on_create_enemy_bullet.connect(on_create_enemy_bullet)
 	SignalHub.on_create_level_complete_upgrades.connect(on_create_level_complete_upgrades)
 
-
+## Adds a bullet to the scene tree
+## Called by: ObjectMaker.gd in on_create_player_bullet(pos, speed_multi, dmg, bullet_type) && ObjectMaker.gd in on_create_enemy_bullet(pos, dir, speed_multi, bullet_type, dmg)
 func add_bullet(obj: Node, pos: Vector2) -> void:
 	add_child(obj)
 	obj.global_position = pos
 
-
+## Adds an upgrade to the scene tree
+## Called by: ObjectMaker.gd in on_create_level_complete_upgrades(amt)
 func add_upgrade(obj: Node, pos: Vector2) -> void:
 	add_child(obj)
 	obj.global_position = pos
 
-
+## Creates a set amount of distinct upgrades for the player to choose from
+## Called by: SignalHub.gd in emit_on_create_level_complete(amt) && Game.gd in on_enemy_dequeue(_eny_diff)
 func on_create_level_complete_upgrades(amt: int) -> void:
 	var viewport_y = get_viewport_rect().size.y
 	var y_inter = viewport_y / (amt+1)
@@ -42,7 +41,8 @@ func on_create_level_complete_upgrades(amt: int) -> void:
 		if scene:
 			call_deferred("add_upgrade", scene, Vector2(1000, (y_inter * (i+1) ) ))
 
-
+## Creates a bullet that the Player shoots. The bullets shoots to the right
+## Called by: SignalHub.gd in emit_on_create_player_bullet(pos, speed_multi, dmg, bullet_type) && Player.gd in shoot()
 func on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, bullet_type: PlayerBulletBase.BulletType) -> void:
 	var scene: PlayerBulletBase
 	match bullet_type:
@@ -52,6 +52,8 @@ func on_create_player_bullet(pos: Vector2, speed_multi: float, dmg: float, bulle
 		scene.setup(speed_multi, dmg)
 		call_deferred("add_bullet", scene, pos)
 
+## Creates a bullet that the enemy shoots. The bullet shoots in the dir variable direction.
+## Called by: SignalHub.gd in emit_on_create_enemy_bullet(pos, dir, speed_multi, bullet_type, dmg) && EnemyShip.gd in shoot()
 func on_create_enemy_bullet(pos: Vector2, dir: Vector2, speed_multi: float, bullet_type: EnemyBulletBase.BulletType, dmg: float) -> void:
 	var scene: EnemyBulletBase
 	match bullet_type:
